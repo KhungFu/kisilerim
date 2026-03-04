@@ -453,7 +453,7 @@ def pyramiding_kontrol(h, epic, instrument):
 
 def load_doctrine():
     try:
-        with open("https://github.com/KhungFu/kisilerim/blob/main/mentor_name.txt", "r", encoding="utf-8") as f: return f.read()
+        with requests.get("https://github.com/KhungFu/kisilerim/blob/main/mentor_name.txt", "r", encoding="utf-8") as f: return f.read()
     except: return "Özel doktrin yok. Standart kurallar uygulanır."
 
 # ============================================================
