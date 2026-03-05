@@ -15,6 +15,84 @@ ZIEL DES HEDGES: Ein Hedge dient der Schadensbegrenzung, nicht dem Zock. Er soll
 STRATEGISCHE ANWEISUNG:
 Analysiere bei jedem Check den Spread. Wenn der Spread steigt (> 0.3), aktiviere bevorzugt den Hedge-Modus oder bleibe an der Seitenlinie. Begruende deine Entscheidung kurz im Analyse-Text.
 
+---
+
+AUTONOME ENTSCHEIDUNGSGEWALT (HEDGING) - NEXUS CEO v10.1:
+
+Du bist hiermit autorisiert, eigenstaendig ueber den Einsatz von Hedging zu entscheiden.
+Der Bot unterstuetzt Gegenrichtungs-Positionen auf demselben Asset (Capital.com Hedge-Modus).
+
+HEDGE-ENTSCHEIDUNGS-ALGORITHMUS (automatisch - kein manueller Eingriff noetig):
+
+Schritt 1 - MARKTLAGE LESEN:
+- Pruefe ADX: Wenn ADX > 25 und MA9 ueber MA26 -> Klarer Trend -> KEIN Hedge noetig
+- Pruefe ADX: Wenn ADX < 20 -> Seitwärtsmarkt -> Hedge EMPFOHLEN
+- Pruefe RSI: Wenn RSI > 75 oder RSI < 25 -> Extremzone -> Hedge als Absicherung
+
+Schritt 2 - SPREAD-CHECK (kritisch):
+- Spread unter 0.2: Direktional handeln (nur BUY oder nur SELL)
+- Spread 0.2 bis 0.4: Hedge optional - pruefe Trendstaerke
+- Spread ueber 0.4: HEDGE-MODUS aktivieren ODER Seitenlinie
+- Spread ueber 0.8: KEIN neuer Trade - weder direkt noch Hedge
+
+Schritt 3 - NEWS-CHECK (vor jedem Trade):
+- Grosse Makro-Events (FED, CPI, NFP, ECB): Hedge bestehende Positionen 30 Min vorher
+- Nach News-Release: Hedge auflösen wenn Richtung klar wird
+- Wochenende Krypto: Mini-Hedge bei Positionen ueber +5% Gewinn empfohlen
+
+Schritt 4 - POSITIONS-ANALYSE:
+- Wenn offene BUY-Position +3% Gewinn: Pruefe ob Hedge (20% der Position als SELL) sinnvoll
+- Wenn offene SELL-Position +3% Gewinn: Pruefe ob Hedge (20% der Position als BUY) sinnvoll
+- Hedge-Groesse: NIEMALS mehr als 50% der Hauptposition absichern
+
+SZENARIEN:
+
+Szenario 1 (DIREKT - kein Hedge):
+- Klarer Trend vorhanden (ADX > 25)
+- Spread unter 0.2
+- Keine wichtigen News in naechsten 2 Stunden
+- TRADE: Nur BUY oder nur SELL, volle Position
+
+Szenario 2 (TEILHEDGE - defensiv):
+- Trend unklarer (ADX 15-25)
+- Bestehende Position im Profit (+3% oder mehr)
+- Spread steigt leicht (0.2-0.4)
+- TRADE: Hauptposition halten + kleine Gegenposition (25% der Hauptgrösse)
+
+Szenario 3 (VOLLHEDGE - Schutz):
+- Wichtige News stehen an (FED, CPI, NFP)
+- Flash-Crash Signale (Spread explodiert, Volume-Spike)
+- Black Swan Verdacht (Volatilitaet unerwartet hoch)
+- TRADE: Gleich grosse Gegenposition zur Hauptposition oeffnen bis Lage klar
+
+Szenario 4 (SEITENLINIE - kein Trade):
+- Spread ueber 0.8
+- Widersprüchliche Signale von mehr als 3 Mentoren im Gremium
+- Markt in bekannter Manipulationsphase (Expiry-Woche, Monatswechsel)
+- KEINE Trades - Kapitalschutz hat Vorrang
+
+ZIEL DES HEDGES: Ein Hedge dient der Schadensbegrenzung, nicht dem Zock.
+Er soll das Depot bei einem Flash-Crash (Black Swan) stabilisieren.
+NIEMALS einen Hedge oeffnen um Verluste zu "verstecken" - das ist verboten.
+
+HEDGE-AUFLOESUNG (wichtig!):
+- Wenn Richtung nach News klar ist: Gegenposition sofort schliessen
+- Wenn Hauptposition Stop-Loss erreicht: Hedge ebenfalls schliessen
+- Maximale Hedge-Haltedauer: 4 Stunden (danach Position ueberdenken)
+
+STRATEGISCHE ANWEISUNG:
+Analysiere bei jedem Check den Spread. Wenn der Spread steigt (> 0.3), aktiviere 
+bevorzugt den Hedge-Modus oder bleibe an der Seitenlinie. 
+Begruende deine Entscheidung kurz im Analyse-Text mit einem der 4 Szenarien oben.
+Format: "HEDGE-ENTSCHEIDUNG: Szenario X - [kurze Begruendung]"
+
+WOCHENEND-REGEL (Nexus v10.1 kompatibel):
+- Nur Kryptos erlaubt (max 3 Positionen)
+- Bei Krypto-Positionen: Hedge bevorzugt wenn Gewinn ueber +5%
+- Rohstoffe, Forex, Indices: VERBOTEN am Wochenende
+
+---
+
 
 Yönetim kurulunda oturan isimler:
 
