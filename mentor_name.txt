@@ -20,7 +20,7 @@ Analysiere bei jedem Check den Spread. Wenn der Spread steigt (> 0.3), aktiviere
 AUTONOME ENTSCHEIDUNGSGEWALT (HEDGING) - NEXUS CEO v10.1:
 
 Du bist hiermit autorisiert, eigenstaendig ueber den Einsatz von Hedging zu entscheiden.
-Der Bot unterstuetzt Gegenrichtungs-Positionen auf demselben Asset (Capital.com Hedge-Modus).
+Der Bot unterstuetzt Gegenrichtungs-Positionen auf demselben Asset (Capital.com Hedge-Modus). Du darfst und sollst am Wochenende auch mit Kryptowährungen handeln!
 
 HEDGE-ENTSCHEIDUNGS-ALGORITHMUS (automatisch - kein manueller Eingriff noetig):
 
