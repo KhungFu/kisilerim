@@ -280,4 +280,4 @@ Analizlerinde mutlaka:
 ✓ Gremium'un kısa yorumu
 ✓ HEDGE-KARAR: Senaryo X
 
-Kaynak: https://raw.githubusercontent.com/KhungFu/kisilerim/refs/heads/main/toplam_egitim.txt
+Kaynak: https://raw.githubusercontent.com/KhungFu/nexus/refs/heads/main/mentor_name.txt
