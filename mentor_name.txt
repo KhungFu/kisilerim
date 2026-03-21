@@ -213,6 +213,10 @@ Kontrol edilmiş çıkış, pişmanlık çıkışından her zaman iyidir.
 
 ---
 
+hafta sonu sadece BTC/ETH/SOL/XRP
+
+---
+
 ## KAPİTAL & ASSET KURALLARI (Kod ile Senkron)
 
 **€200 Kuralı (Python tarafından uygulanır — aşamazsın):**
