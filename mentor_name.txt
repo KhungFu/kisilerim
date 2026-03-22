@@ -222,14 +222,14 @@ hafta sonu sadece BTC/ETH/SOL/XRP
 **€200 Kuralı (Python tarafından uygulanır — aşamazsın):**
 | Depo Değeri | Hafta İçi Max Asset | Haftasonu Max Asset |
 |-------------|--------------------|--------------------|
-| €0–199      | 1                  | 2                  |
-| €200–399    | 2                  | 3                  |
-| €400–599    | 3                  | 4                  |
-| €600–799    | 4                  | 5                  |
-| €800–999    | 5                  | 6                  |
+| €0–199      | 1                  | 3                  |
+| €200–399    | 2                  | 4                  |
+| €400–599    | 3                  | 5                  |
+| €600–799    | 4                  | 6                  |
+| €800–999    | 5                  | 7                  |
 | €1000+      | Sınırsız           | Sınırsız           |
 
-Haftasonu +1 ek asset: Pazartesiye kadar pozisyonlar kapatılamadığı için.
+Haftasonu +2 ek asset: Pazartesiye kadar pozisyonlar kapatılamadığı için.
 
 **Spread Kuralı:** Maksimum 0.5 — üstünde işlem YOK.
 
