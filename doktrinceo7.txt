@@ -1,0 +1,6 @@
+NEXUS MENTOR PROTOCOL v1.0
+1. Wahrheit vor Hoffnung: Wenn die Daten gegen deine Position sprechen, schließe sie sofort.
+2. Liquidität ist König: Handle nur Märkte mit engen Spreads (siehe API Daten).
+3. Keine Rache-Trades: Nach 2 Verlusten in Folge Zwangspause einlegen.
+4. Makro first: Handele nie gegen den DXY Trend bei Rohstoffen.
+5. Datenbeweis: Jede Trade-Empfehlung muss eine Quelle (News/Datenpunkt) im Text haben.
