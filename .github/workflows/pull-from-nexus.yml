@@ -1,0 +1,60 @@
+# Holt die Listen aus dem oeffentlichen Repository KhungFu/nexus.
+#
+# Ersetzt den Workflow "Sync selected files" in nexus, der seit dem 25.03.2026
+# am Hochladen scheiterte. Dieser hier braucht KEIN Token und kein Secret:
+# er laeuft in kisilerim, liest nexus ohne Anmeldung (nexus ist oeffentlich)
+# und schreibt mit dem eingebauten Token dieses Repositorys.
+#
+# - laeuft jede Stunde und auf Knopfdruck (Actions -> Pull lists from nexus -> Run workflow)
+# - aendert nur die sechs Listen unten; fehlt eine in nexus oder ist sie leer, bleibt die alte
+# - wird nexus privat, schlaegt der Lauf fehl und die Listen bleiben, wie sie sind
+# - GitHub schaltet Zeitplaene in Repositorys ab, in denen 60 Tage nichts passiert;
+#   dann kommt eine E-Mail, und unter Actions laesst sich der Workflow wieder einschalten
+
+name: Pull lists from nexus
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pull-lists-from-nexus
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kisilerim
+        uses: actions/checkout@v4
+
+      - name: Fetch nexus (public, no token)
+        run: git clone --depth 1 https://github.com/KhungFu/nexus.git "$RUNNER_TEMP/nexus"
+
+      - name: Copy the list files
+        run: |
+          set -e
+          for f in mentor_name.txt toplam_egitim.txt NewsVerlage.txt Bot_egitim_videolari.txt Audiobooks.txt Abfrage_Quellen.txt; do
+            if [ -s "$RUNNER_TEMP/nexus/$f" ]; then
+              cp "$RUNNER_TEMP/nexus/$f" "$f"
+            else
+              echo "::warning::$f fehlt in nexus oder ist leer - die alte Fassung bleibt"
+            fi
+          done
+          echo "NEXUS_SHA=$(git -C "$RUNNER_TEMP/nexus" rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Commit and push if something changed
+        run: |
+          git add mentor_name.txt toplam_egitim.txt NewsVerlage.txt Bot_egitim_videolari.txt Audiobooks.txt Abfrage_Quellen.txt
+          if git diff --cached --quiet; then
+            echo "Keine Aenderung."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update from https://github.com/KhungFu/nexus/commit/${NEXUS_SHA}"
+          git push
